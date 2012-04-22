@@ -1,0 +1,5 @@
+(let* ((machine-dir (concat prelude-personal-dir "machines/"))
+       (short-system-name (elt (split-string (system-name) "\\.") 0))
+       (machine-file (concat machine-dir (concat short-system-name ".el"))))
+  (when (file-exists-p machine-file)
+    (load machine-file)))
