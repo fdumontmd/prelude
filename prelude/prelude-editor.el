@@ -74,10 +74,8 @@
                                          try-complete-lisp-symbol-partially
                                          try-complete-lisp-symbol))
 
-;; smart indenting and pairing for all
+;; smart pairing for all
 (electric-pair-mode t)
-(electric-indent-mode t)
-(electric-layout-mode t)
 
 ;; meaningful names for buffers with the same name
 (require 'uniquify)
@@ -118,7 +116,7 @@
 
 ;; use shift + arrow keys to switch between visible buffers
 (require 'windmove)
-(windmove-default-keybindings 'super)
+(windmove-default-keybindings)
 
 ;; automatically save buffers associated with files on buffer switch
 ;; and on windows switch
@@ -135,8 +133,8 @@
 (defadvice windmove-right (before other-window-now activate)
   (when buffer-file-name (save-buffer)))
 
-;; show-paren-mode: subtle highlighting of matching parens
-(show-paren-mode t)
+;; show-paren-mode: subtle highlighting of matching parens (global-mode)
+(show-paren-mode +1)
 (setq show-paren-style 'parenthesis)
 
 ;; highlight the current line
